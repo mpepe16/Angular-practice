@@ -1,0 +1,6 @@
+<h2>Cavemen List</h2>
+    <ul>
+      <li *ngFor="let caveman of cavemen$ | async">
+        {{ caveman.name }} ({{ caveman.age }} years old)
+      </li>
+    </ul>
