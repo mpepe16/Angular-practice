@@ -2,24 +2,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Caveman } from '../entities/caveman';
 
-
-export interface Caveman {
-  id?: number; 
-  name: string;
-  age: number;
-}
 
 @Injectable({
   providedIn: 'root' 
 })
 export class CavemanService {
-  private apiUrl = 'http://localhost:3000/caveman'; // A NestJS backend URL-je
+  private apiUrl = 'http://localhost:3000/caveman'; // A NestJS backend URL
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+  }
 
-  getAllCavemen(): Observable<Caveman[]> {
-    console.log("service called");
+  getAllCaveman(): Observable<Caveman[]> {
     return this.http.get<Caveman[]>(this.apiUrl);
   }
 
