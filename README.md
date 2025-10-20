@@ -53,15 +53,17 @@ You play as a primitive caveman who must **explore, craft, and evolve** within a
 
 The project follows **Clean Architecture** principles to ensure modularity and scalability.
 
+
 ```
-frontend/
+frontend/ (Angular)
  ├── src/
  │   └── app/
- │       └── domains/
- └── assets/
-
-<img width="1536" height="1024" alt="caveman-genesis-frontend" src="https://github.com/user-attachments/assets/68a6caee-19e0-45ee-8b13-a7da614cd2a9" />
-
+ │       ├── domains/        # Feature domains (caveman, crafting, map, etc.)
+ │       ├── core/           # Shared services, guards, interceptors
+ │       ├── shared/         # Reusable components, pipes, and directives
+ │       ├── app.component.ts               
+ ├── assets/                 # Images, sprites, and game data
+ └── angular.json
 
 
 backend/ (NestJS)
@@ -75,6 +77,15 @@ backend/ (NestJS)
  └── main.ts
 ```
 
+---
+
+### 🖼️ Frontend Architecture Diagram
+
+<p align="center">
+  <img src="./frontend/assets/cave-genesis-frontend-architecture.png" alt="Angular Frontend Architecture Diagram" width="700"/>
+</p>
+
+---
 ### Layers
 
 - **Domain Layer** – Business models and core logic (e.g. `Caveman`, `Craftable`, `Skill`)  
