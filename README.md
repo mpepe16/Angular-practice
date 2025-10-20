@@ -54,11 +54,15 @@ You play as a primitive caveman who must **explore, craft, and evolve** within a
 The project follows **Clean Architecture** principles to ensure modularity and scalability.
 
 ```
-frontend/ (Angular)
- ├── components/
- ├── store/ (NGRX)
- ├── services/
+frontend/
+ ├── src/
+ │   └── app/
+ │       └── domains/
  └── assets/
+
+<img width="1536" height="1024" alt="caveman-genesis-frontend" src="https://github.com/user-attachments/assets/68a6caee-19e0-45ee-8b13-a7da614cd2a9" />
+
+
 
 backend/ (NestJS)
  ├── src/
@@ -131,8 +135,5 @@ Backend runs at **http://localhost:3000**
 - **Don’t Starve** — survival and resource management
 - **Doodle God** — creative combination discovery
 - **Hősember Képző** — humorous skill development
-- **Terraria** — crafting and exploration mechanics
 
-
-The project follows **Clean Architecture** principles to ensure modularity and scalability.
 
