@@ -1,0 +1,16 @@
+// src/auth/auth.module.ts
+import { Module } from "@nestjs/common";
+import { JwtModule } from "@nestjs/jwt";
+
+@Module({
+  imports: [
+    JwtModule.register({
+      secret:
+        process.env.JWT_SECRET || "fallback-secret-key-for-development-only",
+      signOptions: { expiresIn: "1h" },
+    }),
+  ],
+  providers: [],
+  exports: [JwtModule],
+})
+export class AuthModule {}
