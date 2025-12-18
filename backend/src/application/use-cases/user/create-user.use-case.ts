@@ -1,10 +1,16 @@
+// src/application/use-cases/create-user.use-case.ts
+
 import { Inject, Injectable } from "@nestjs/common";
 import { CreateUserDto } from "src/application/dtos/user-dto/user.dto";
+import { AuthResponse } from "src/application/dtos/user-dto/auth-response.dto";
 import {
   PASSWORD_HASHER_PORT,
   PasswordHasher,
 } from "src/application/ports/password-hasher.port";
-import { User } from "src/domain/entities/user.entity";
+import {
+  TOKEN_SERVICE_PORT,
+  TokenService,
+} from "src/application/ports/token.service.port";
 import { EmailAlreadyTakenException } from "src/domain/exceptions/user.exception";
 import {
   USER_REPOSITORY_PORT,
@@ -18,9 +24,11 @@ export class CreateUserUseCase {
     private userRepository: UserRepository,
     @Inject(PASSWORD_HASHER_PORT)
     private passwordHasher: PasswordHasher,
+    @Inject(TOKEN_SERVICE_PORT)
+    private tokenService: TokenService,
   ) {}
 
-  async execute(createUserDto: CreateUserDto): Promise<Omit<User, "password">> {
+  async execute(createUserDto: CreateUserDto): Promise<AuthResponse> {
     const existingUser = await this.userRepository.findByEmail(
       createUserDto.email,
     );
@@ -35,8 +43,15 @@ export class CreateUserUseCase {
       name: createUserDto.name,
       password: hashedPassword,
     });
+
+    const accessToken = this.tokenService.generateAccessToken(newUser);
+
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password, ...userWithoutPassword } = newUser;
-    return userWithoutPassword;
+
+    return {
+      accessToken,
+      user: userWithoutPassword,
+    };
   }
 }
