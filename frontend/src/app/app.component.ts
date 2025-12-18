@@ -1,13 +1,21 @@
-import { Component } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
-import { CavemanListComponent } from "./caveman-management/ui-components/caveman-list/caveman-list.component";
+
+import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+
 @Component({
   selector: 'app-root',
-  imports: [ HeaderComponent,CavemanListComponent],
-  templateUrl: './app.component.html',
-  standalone:true,
-  styleUrl: './app.component.css'
+  templateUrl: "./app.component.html",
+  standalone: true,
+  imports: [RouterOutlet]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angular-practice';
+
+  constructor() {
+
+  }
+
+  ngOnInit() {
+  }
 }
