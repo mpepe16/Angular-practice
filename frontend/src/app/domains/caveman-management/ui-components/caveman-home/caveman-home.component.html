@@ -1,0 +1,8 @@
+
+<button (click)="toggleList()">
+    {{ showList ? 'Hide' : 'Show' }} Cavemen
+</button>
+<app-caveman-list *ngIf="showList"></app-caveman-list>
+<button (click)="addNewCaveman()">
+    Add New Caveman
+</button>
