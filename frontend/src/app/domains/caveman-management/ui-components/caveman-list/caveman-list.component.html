@@ -1,0 +1,25 @@
+
+<h2>Cavemen List</h2>
+
+<div *ngIf="isLoading$ | async">Loading cavemen...</div>
+
+<div *ngIf="error$ | async as error" style="color: red;">
+  Error happened: {{ error | json }}
+</div>
+
+<ul *ngIf="((cavemen$ | async) ?? []).length > 0 && !(isLoading$ | async)">
+  @for (caveman of (cavemen$ | async) ?? []; track caveman.id) { <!-- track by caveman.id for better performance -->
+    <li>
+      <div>
+        <button>
+          <img />
+          <span>{{ caveman.name }}</span>
+        </button>
+      </div>
+    </li>
+  }
+</ul>
+
+<div *ngIf="!(isLoading$ | async) && !(cavemen$ | async)?.length && !(error$ | async)">
+  No caveman for this user.
+</div>
