@@ -36,9 +36,7 @@ export class UserController {
   ) {}
 
   @Post("/register")
-  async create(
-    @Body() createUserDto: CreateUserDto,
-  ): Promise<Omit<User, "password">> {
+  async create(@Body() createUserDto: CreateUserDto): Promise<AuthResponse> {
     return this.createUserUseCase.execute(createUserDto);
   }
 
