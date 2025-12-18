@@ -1,0 +1,105 @@
+<div class="auth-container">
+  <h2>Regisztráció a Caveman App-ba</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <!-- Felhasználónév mező -->
+    <div class="form-group">
+      <label for="username">Felhasználónév</label>
+      <input id="username" type="text" formControlName="username" placeholder="Pl. CavemanUser123" />
+      @if (registerForm.get('username')?.invalid && registerForm.get('username')?.touched) {
+        <div class="error-message">
+          @if (registerForm.get('username')?.errors?.['required']) {
+            <span>A felhasználónév kötelező.</span>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Email mező -->
+    <div class="form-group">
+      <label for="email">Email cím</label>
+      <input id="email" type="email" formControlName="email" placeholder="pelda@email.com" />
+      @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+        <div class="error-message">
+          @if (registerForm.get('email')?.errors?.['required']) {
+            <span>Az email cím kötelező.</span>
+          }
+          @if (registerForm.get('email')?.errors?.['email']) {
+            <span>Érvényes email címet adj meg.</span>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Age mező -->
+    <div class="form-group">
+      <label for="age">Kor</label>
+      <input id="age" type="number" formControlName="age" placeholder="Pl. 30" />
+      @if (registerForm.get('age')?.invalid && registerForm.get('age')?.touched) {
+        <div class="error-message">
+          @if (registerForm.get('age')?.errors?.['required']) {
+            <span>A kor mező kötelező.</span>
+          }
+          @if (registerForm.get('age')?.errors?.['min']) {
+            <span>A kornak legalább 0-nak kell lennie.</span>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Jelszó mező -->
+    <div class="form-group">
+      <label for="password">Jelszó</label>
+      <input id="password" type="password" formControlName="password" placeholder="Legalább 6 karakter" />
+      @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+        <div class="error-message">
+          @if (registerForm.get('password')?.errors?.['required']) {
+            <span>A jelszó kötelező.</span>
+          }
+          @if (registerForm.get('password')?.errors?.['minlength']) {
+            <span>A jelszónak legalább 6 karakter hosszúnak kell lennie.</span>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Jelszó megerősítése mező -->
+    <div class="form-group">
+      <label for="confirmPassword">Jelszó megerősítése</label>
+      <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Ismételd meg a jelszót" />
+      @if (registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched) {
+        <div class="error-message">
+          @if (registerForm.get('confirmPassword')?.errors?.['required']) {
+            <span>A jelszó megerősítése kötelező.</span>
+          }
+        </div>
+      }
+      @if (registerForm.hasError('mismatch') && registerForm.get('confirmPassword')?.touched) {
+        <div class="error-message">
+          <span>A jelszavak nem egyeznek.</span>
+        </div>
+      }
+    </div>
+
+    <!-- Regisztráció gomb -->
+    <button type="submit" [disabled]="registerForm.invalid || isLoading">
+      @if (!isLoading) {
+        <span>Regisztráció</span>
+      }
+      @if (isLoading) {
+        <span>Regisztráció...</span>
+      }
+    </button>
+
+    <!-- Szerver oldali hibaüzenet -->
+    @if (errorMessage) {
+      <div class="server-error-message">
+        {{ errorMessage }}
+      </div>
+    }
+
+    <!-- Link a bejelentkezéshez -->
+    <p class="switch-auth">
+      Már van fiókod? <a routerLink="/auth/login">Jelentkezz be!</a>
+    </p>
+  </form>
+</div>
