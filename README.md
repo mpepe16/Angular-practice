@@ -82,7 +82,7 @@ backend/ (NestJS)
 ### 🖼️ Frontend Architecture Diagram
 
 <p align="center">
-  <img src="./frontend/assets/cave-genesis-frontend-architecture.png" alt="Angular Frontend Architecture Diagram" width="700"/>
+  <img src="./frontend/src/assets/cave-genesis-frontend-architecture.png" alt="Angular Frontend Architecture Diagram" width="700"/>
 </p>
 
 ---
