@@ -1,0 +1,5 @@
+@if (isAuthenticated$ | async) {
+    <button (click)="onLogout()" class="logout-button">
+      Logout
+    </button>
+}
