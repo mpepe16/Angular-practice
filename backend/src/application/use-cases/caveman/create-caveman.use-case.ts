@@ -1,7 +1,7 @@
 import { Injectable, Inject } from "@nestjs/common";
 import { CreateCavemanDto } from "src/application/dtos/caveman-dto/create-caveman.dto";
-import { Caveman } from "src/domain/entities/caveman.entity";
-import { CavemanAlreadyExistsException } from "src/domain/exceptions/caveman.exception";
+import { Caveman } from "../../../domain/entities/caveman.entity";
+import { CavemanAlreadyExistsException } from "../../../domain/exceptions/caveman.exception";
 import {
   CAVEMAN_REPOSITORY_PORT,
   CavemanRepository,
