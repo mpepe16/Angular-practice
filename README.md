@@ -1,9 +1,9 @@
-# 🪓 Caveman Genesis
+# Caveman Genesis
 _A survival, crafting, and discovery web game built with Angular + NestJS._
 
 ---
 
-## 🌍 Concept
+## Concept
 
 **Caveman Genesis** is a browser-based game that blends the survival mechanics of **Don’t Starve**, the growth logic of **Hősember Képző**, and the creative combination gameplay of **Doodle God**.
 
@@ -11,7 +11,7 @@ You play as a primitive caveman who must **explore, craft, and evolve** within a
 
 ---
 
-## 🧱 Tech Stack
+## Tech Stack
 
 | Layer | Technology | Description |
 |-------|-------------|-------------|
@@ -25,7 +25,7 @@ You play as a primitive caveman who must **explore, craft, and evolve** within a
 
 ---
 
-## 🧩 Core Domains
+## Core Domains
 
 | Domain | Description |
 |--------|-------------|
@@ -39,17 +39,17 @@ You play as a primitive caveman who must **explore, craft, and evolve** within a
 
 ---
 
-## 🕹️ Core Gameplay
+## Core Gameplay
 
-- 🔨 **Crafting System** — Combine resources to discover new items and recipes  
-- 🧭 **Exploration** — Uncover map areas, NPCs, and world events  
-- ⚡ **Progression** — Level up skills, unlock new crafting paths  
-- 🧠 **Experimentation** — Discover combinations through trial and logic  
-- 🗣️ **Interaction** — Dialogue, trade, and decision-based encounters  
+-  **Crafting System** — Combine resources to discover new items and recipes  
+-  **Exploration** — Uncover map areas, NPCs, and world events  
+-  **Progression** — Level up skills, unlock new crafting paths  
+-  **Experimentation** — Discover combinations through trial and logic  
+-  **Interaction** — Dialogue, trade, and decision-based encounters  
 
 ---
 
-## 🧠 Architecture Overview
+## Architecture Overview
 
 The project follows **Clean Architecture** principles to ensure modularity and scalability.
 
@@ -79,7 +79,7 @@ backend/ (NestJS)
 
 ---
 
-### 🖼️ Frontend Architecture Diagram
+### Frontend Architecture Diagram
 
 <p align="center">
   <img src="./frontend/src/assets/cave-genesis-frontend-architecture.png" alt="Angular Frontend Architecture Diagram" width="700"/>
@@ -95,7 +95,7 @@ backend/ (NestJS)
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js ≥ 20
@@ -106,7 +106,7 @@ backend/ (NestJS)
 
 ```bash
 # Clone repository
-git clone https://github.com/your-username/caveman-genesis.git
+git clone https://github.com/mpepe16/Angular-practice.git
 cd caveman-genesis
 ```
 
@@ -129,7 +129,7 @@ Backend runs at **http://localhost:3000**
 
 ---
 
-## 💡 Development Roadmap
+## Development Roadmap
 
 - [x] Initial domain design (Caveman, Crafting, Map, NPC)
 - [ ] Add Inventory & Skill Tree systems
@@ -141,7 +141,7 @@ Backend runs at **http://localhost:3000**
 
 ---
 
-## 🎨 Inspirations
+## Inspirations
 
 - **Don’t Starve** — survival and resource management
 - **Doodle God** — creative combination discovery
